@@ -1,10 +1,10 @@
 .quiz-wrapper {
-  height: 100vh;
+  height: fit-content;
   font-family: Roboto, sans-serif;
-
+  padding-bottom: 100px;
 
   h1 {
-    color: white;
+    color: black;
     text-align: center;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -14,7 +14,7 @@
 
   .quiz-card {
     //width: 500px;
-    height: 450px;
+height: fit-content;
     border: none;
     border-radius: 20px;
     //display: flex;
@@ -24,12 +24,14 @@
     //margin: auto;
     background-color: transparent;
     box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+    position: absolute;
+    top: 20%;
 
     .questions {
       margin-top: 30px;
 
       h2 {
-        color: wheat;
+        color: darkblue;
       }
 
       button {
@@ -40,6 +42,13 @@
         border: none;
         border-radius: 6px;
         cursor: pointer;
+
+      }
+
+      button:hover {
+        color: black;
+        background-color: goldenrod;
+        font-weight: 600;
       }
     }
 
