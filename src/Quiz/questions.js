@@ -1,25 +1,47 @@
 export const questions = [
     {
-        question: "In what contintent is Indonesia?",
-        answers: ["South America", "Europe", "Asia"],
-        correctAnswerIndex: 2
+        id: 0,
+        question: ` What is the Capital Of India ?`,
+        answerOptions: [
+            {answerText: "New Delhi",isCorrect:true},
+            {answerText: "Mumbai",isCorrect:false},
+            {answerText: "Punjab",isCorrect:false},
+
+        ],
+
     },
     {
-
+        id: 1,
         question: `Who is the CEO of Tesla Motors?`,
-        answers: [`Bill Gates`, `Steve Jobs`, `Elon Musk`],
-        correctAnswerIndex: 3
+        answerOptions: [
+            {answerText: "Elon Musk",isCorrect:true},
+            {answerText: "Bill Gates",isCorrect:false},
+            {answerText: "Steve Jobs",isCorrect:false},
+
+        ],
+
     },
     {
-
+        id: 2,
         question: `Name World's Richest Man?`,
-        answers: [`Jeff Bezo`, `Bill Gates`, `Mark Zuckerberg`],
-        correctAnswerIndex:1
+        answerOptions: [
+            {answerText: "Jeff Bezo",isCorrect:true},
+            {answerText: "Bill Gates",isCorrect:false},
+            {answerText: "Mark Zuckerberg",isCorrect:false},
+
+        ],
+
     },
     {
-
+        id: 2,
         question: `World's Longest River?`,
-        answers: [`River Nile`, `River Amazon`, `River Godavari`],
-        correctAnswerIndex: 1
-    }
+        answerOptions: [
+            {answerText: "River Nile",isCorrect:true},
+            {answerText: "River Amazon",isCorrect:false},
+            {answerText: "River Godavari",isCorrect:false},
+
+        ],
+
+    },
+
 ];
