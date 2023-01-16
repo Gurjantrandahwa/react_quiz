@@ -1,0 +1,10 @@
+import './App.scss';
+import Quiz from "./Quiz/Quiz";
+
+function App() {
+    return <div className={"app_container"}>
+        <Quiz/>
+    </div>
+}
+
+export default App;
