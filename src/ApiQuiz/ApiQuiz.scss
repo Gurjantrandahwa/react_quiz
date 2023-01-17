@@ -1,0 +1,22 @@
+.question-wrapper{
+  padding: 20px;
+  h1{
+    color: brown;
+    text-align: center;
+  }
+  h5{
+    margin-bottom: 10px;
+  }
+  button{
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+    cursor: pointer;
+    border: none;
+    background-color: mediumorchid;
+    color: white;
+    border-radius: 6px;
+  }
+}

@@ -74,7 +74,8 @@ export default function Quiz() {
                                 </button>
                                 <button
                                     style={{backgroundColor: "violet", color: "black", fontWeight: "600"}}
-                                >Quit
+                                >
+                                    Play Again
                                 </button>
                             </div>
                         </div>
