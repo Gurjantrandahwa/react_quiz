@@ -1,63 +1,87 @@
 import React, {useEffect, useState} from "react";
 import "./quiz.scss";
-// import {questions} from "./questions";
+import {questions} from "./questions";
+import QuizResult from "./QuizResult";
 
 export default function Quiz() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [questions, setQuestions] = useState([])
+
+    const [score, setScore] = useState(0)
+    const [correct, setCorrect] = useState(0)
+    const [showResult, setShowResult] = useState(false)
+    const [clicked, setClicked] = useState(false)
+
     const next = () => {
-        setCurrentQuestion(currentQuestion + 1)
+        setClicked(false)
+        const nextQuestion = currentQuestion + 1
+        if (nextQuestion < questions.length) {
+            setCurrentQuestion(nextQuestion)
+
+
+        } else {
+            setShowResult(true)
+        }
+
+
     }
-    useEffect(() => {
-        const url = "https://the-trivia-api.com/api/questions";
 
-        const fetchData = async () => {
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-                console.log(data)
-                setQuestions(data)
 
-            } catch (error) {
-                console.log("error", error);
-            }
-        };
-
-        fetchData();
-    }, []);
-    console.log(questions)
+    const handleAnswers = (isCorrect) => {
+        if (isCorrect) {
+            setScore(score + 5)
+            setCorrect(correct + 1)
+        }
+        setClicked(true)
+    }
+    // console.log(questions)
     return <div className={"quiz-wrapper"}>
         <h1>Quiz</h1>
-        <div className={"quiz-card"}>
-            {/*{questions[currentQuestion].question}*/}
-            {questions.map((value, index) => {
-                return <div key={index}>
-                    <h5>Q: {value.question}</h5>
-                    <h6>{value.category}</h6>
-                    {/*<div>*/}
-                    {/*    {*/}
-                    {/*        value.incorrectAnswers.map((ans, i) => {*/}
-                    {/*            return <button key={i}>{ans}</button>*/}
-                    {/*        })*/}
-                    {/*    }*/}
-                    {/*</div>*/}
-                    {/*<p>{value.correctAnswer}</p>*/}
-                </div>
-            })}
+        {
+            showResult ? (
+                    <QuizResult correct={correct} score={score}/>
+                )
+                : (
+                    <div>
 
-            <div>
-                <button
-                    style={{backgroundColor: "violet", color: "black", fontWeight: "600"}}
-                    onClick={next}
-                >
-                    Next
-                </button>
-                <button
-                    style={{backgroundColor: "violet", color: "black", fontWeight: "600"}}
-                >Quit
-                </button>
-            </div>
-        </div>
+                        <div className={"quiz-card"}>
+                            <h5>Score: {score} </h5>
+                            <h6>
+                                Question {currentQuestion + 1} of {questions.length}
+                            </h6>
+                            <p>{questions[currentQuestion].question}</p>
+                            {
+                                questions[currentQuestion].answerOptions.map((value, index) => {
+                                    return <div key={index}>
+                                        <button
+                                            className={`button ${clicked && value.isCorrect ? "correct" : "button"}`}
+                                            disabled={clicked}
+                                            onClick={() => handleAnswers(value.isCorrect)}
+                                        >
+                                            {value.answerText}
+                                        </button>
+
+                                    </div>
+
+                                })
+                            }
+                            <div>
+                                <button
+                                    disabled={!clicked}
+                                    style={{backgroundColor: "violet", color: "black", fontWeight: "600"}}
+                                    onClick={next}
+                                >
+                                    Next
+                                </button>
+                                <button
+                                    style={{backgroundColor: "violet", color: "black", fontWeight: "600"}}
+                                >Quit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )
+
+        }
 
 
     </div>
