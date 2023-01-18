@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import "./quiz.scss";
 import {questions} from "./questions";
 import QuizResult from "./QuizResult";
 
 export default function Quiz() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
-
     const [score, setScore] = useState(0)
     const [correct, setCorrect] = useState(0)
     const [showResult, setShowResult] = useState(false)
@@ -44,10 +43,10 @@ export default function Quiz() {
                     <div>
 
                         <div className={"quiz-card"}>
-                            <h5>Score: {score} </h5>
-                            <h6>
+                            <h3>Score: {score} </h3>
+                            <h4>
                                 Question {currentQuestion + 1} of {questions.length}
-                            </h6>
+                            </h4>
                             <p>{questions[currentQuestion].question}</p>
                             {
                                 questions[currentQuestion].answerOptions.map((value, index) => {
@@ -64,16 +63,15 @@ export default function Quiz() {
 
                                 })
                             }
-                            <div>
+                            <div className={"next-btn-wrapper"}>
                                 <button
                                     disabled={!clicked}
-                                    style={{backgroundColor: "violet", color: "black", fontWeight: "600"}}
                                     onClick={next}
                                 >
                                     Next
                                 </button>
                                 <button
-                                    style={{backgroundColor: "violet", color: "black", fontWeight: "600"}}
+
                                 >
                                     Play Again
                                 </button>
