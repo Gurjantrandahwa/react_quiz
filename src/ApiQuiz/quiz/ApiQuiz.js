@@ -2,31 +2,48 @@ import React, {useEffect, useState} from "react";
 import "./ApiQuiz.scss";
 import Header from "../Header/Header";
 import Homepage from "../Homepage/Homepage";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Questions from "../questions/Questions";
+import Result from "../Result/Result";
+import axios from "axios";
 
 export default function ApiQuiz() {
-    const [questions, setQuestions] = useState([])
-
-
-    useEffect(() => {
-        const url = `https://opentdb.com/api.php?amount=10&category=21&difficulty=medium&type=multiple`;
-
-        const fetchData = async () => {
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-                setQuestions(data.results)
-
-            } catch (error) {
-                console.log("error", error);
-            }
-        };
-
-        fetchData();
-    }, []);
-    console.log(questions)
     //https://i.pinimg.com/564x/77/e3/35/77e3355a8679eb0686bea14c8e99c17c.jpg
+    const [name, setName] = useState("")
+    const [score, setScore] = useState(0)
+    const [questions, setQuestions] = useState()
+
+    const fetchQuestions = async (category = "", difficulty = "") => {
+        const {data} = await axios.get(`https://opentdb.com/api.php?amount=10${
+            category && `&category=${category}`
+        }${difficulty && `&difficulty=${difficulty}`}&type=multiple`);
+        console.log(data, "data")
+        setQuestions(data.results)
+    }
+
     return <div className={"api-container"}>
-        <Header/>
-        <Homepage/>
+        <BrowserRouter>
+            <Header/>
+            <Routes>
+                <Route path={"/"}
+                       element={<Homepage
+                           name={name}
+                           setName={setName}
+                           fetchQuestions={fetchQuestions}
+                       />}/>
+                <Route path={"/questions"}
+                       element={<Questions
+                           questions={questions}
+                           score={score}
+                           setScore={setScore}
+                           setQuestions={setQuestions}
+                           name={name}
+                       />}/>
+                <Route path={"/result"} element={<Result/>}/>
+
+            </Routes>
+
+        </BrowserRouter>
+
     </div>
 }

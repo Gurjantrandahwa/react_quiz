@@ -1,11 +1,12 @@
 import React from "react";
 import "./Header.scss"
+import {Divider} from "@mui/material";
 export default function Header() {
     return<div className={"header"}>
         <h1>
             Quiz
         </h1>
-        <hr/>
+        <Divider color={"success"}/>
 
     </div>
 }
