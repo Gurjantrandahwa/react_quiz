@@ -4,7 +4,7 @@ import {Divider} from "@mui/material";
 export default function Header() {
     return<div className={"header"}>
         <h1>
-            Quiz
+            Quiz Game
         </h1>
         <Divider color={"success"}/>
 

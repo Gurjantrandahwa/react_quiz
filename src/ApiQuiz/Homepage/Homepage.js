@@ -2,16 +2,18 @@ import React, {useState} from "react";
 import "./Homepage.scss"
 import {Alert, Button, MenuItem, TextField} from "@mui/material";
 import categories from "../Data/categories"
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+
+
 export default function Homepage({name, setName, fetchQuestions}) {
-    const [category, setCategory] = useState("")
-    const [difficulty, setDifficulty] = useState("")
-    const [error, setError] = useState(false)
     const navigate = useNavigate();
+    const [difficulty, setDifficulty] = useState("")
+    const [category, setCategory] = useState("")
+    const [error, setError] = useState(false)
     const handleSubmit = () => {
         if (!category || !difficulty || !name) {
             setError(true);
-            return;
+
         } else {
             setError(false)
             fetchQuestions(category, difficulty)
@@ -27,61 +29,73 @@ export default function Homepage({name, setName, fetchQuestions}) {
         </div>
         <div className={"input-wrapper"}>
             <h2>Quiz Login</h2>
-
-            {error && <Alert
-                sx={{marginBottom:"10px"}}
-                color={"error"} variant={"outlined"}>
-                Please fill the details
-            </Alert>}
-            <TextField
-                sx={{marginBottom: "20px"}}
-                label={"Enter Your Name"}
+            {error &&
+            <Alert
+                sx={{
+                    marginBottom:"20px"
+                }}
                 variant={"outlined"}
-                onChange={(e) => setName(e.target.value)}
-            />
-            <TextField
-                sx={{marginBottom: "20px"}}
-                select
-                label={"Select Category"}
-                variant={"outlined"}
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-            >
+            color={"error"}>
+                Please fill all the details
+            </Alert>
+            }
+            <form>
+                <TextField
+                    required
+                    label={"Enter Your Name"}
+                    variant={"outlined"}
+                    onChange={(e) =>
+                        setName(e.target.value)}
+                />
 
-                {categories.map((cate) => {
+                <TextField
+                    select
+                    label={"Select Category"}
+                    variant={"outlined"}
+                    value={category}
+                    onChange={(e)=>
+                    setCategory(e.target.value)}
+                >
 
-                    return <MenuItem key={cate.category} value={cate.value}>
-                        {cate.category}
+                    {categories.map((cate) => {
+                        return <MenuItem key={cate.category} value={cate.value}>
+                            {cate.category}
+                        </MenuItem>
+                    })}
+
+                </TextField>
+
+                <TextField
+                    select
+                    label={"Select Difficulty"}
+                    variant={"outlined"}
+                    value={difficulty}
+                    onChange={(e)=>
+                        setDifficulty(e.target.value)}
+
+                >
+                    <MenuItem key={"Easy"} value={"easy"}>
+                        Easy
                     </MenuItem>
-                })}
+                    <MenuItem key={"Medium"} value={"medium"}>
+                        Medium
+                    </MenuItem>
+                    <MenuItem key={"Hard"} value={"hard"}>
+                        Hard
+                    </MenuItem>
+                </TextField>
 
-            </TextField>
-            <TextField
-                sx={{marginBottom: "20px"}}
-                select
-                label={"Select Difficulty"}
-                variant={"outlined"}
-                value={difficulty}
-                onChange={(e) => setDifficulty(e.target.value)}
-            >
-                <MenuItem key={"Easy"} value={"easy"}>
-                    Easy
-                </MenuItem>
-                <MenuItem key={"Medium"} value={"medium"}>
-                    Medium
-                </MenuItem>
-                <MenuItem key={"Hard"} value={"hard"}>
-                    Hard
-                </MenuItem>
-            </TextField>
-            <Button
-                size={"large"}
-                color={"success"}
-                variant={"contained"}
-                onClick={handleSubmit}
-            >
-                Start Quiz
-            </Button>
+                <Button
+                    size={"large"}
+                    color={"success"}
+                    variant={"contained"}
+                    onClick={handleSubmit}
+                >
+                    Start Quiz
+                </Button>
+            </form>
+
+
         </div>
     </div>
 }

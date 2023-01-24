@@ -1,10 +1,18 @@
 .homepage {
   padding: 20px;
   display: flex;
+  flex-wrap: wrap;
 
-  img{
+  img {
     height: 450px;
+    width: 100%;
+    object-fit: cover;
+    place-items: center;
+    display: flex;
+    margin: auto;
+    justify-content: center;
   }
+
   h2 {
     font-size: 42px;
     font-weight: 400;
@@ -20,5 +28,18 @@
     justify-content: center;
     margin: auto;
 
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  @media screen and (max-width: 840px) {
+    .input-wrapper {
+      width: 100%;
+      margin-top: 10px;
+    }
   }
 }
+

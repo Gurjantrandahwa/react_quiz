@@ -69,19 +69,7 @@ export default function QuestionMain({
                     })
                 }
             </div>
-            <div
-                className={"controls"}
-            >
-                <Button
-
-                    fullWidth
-                    variant={"contained"}
-                    size={"large"}
-                    color={"secondary"}
-                    onClick={handleNext}
-                >
-                    Next Question
-                </Button>
+            <div  className={"controls"}>
                 <Button
                     fullWidth
                     color={"error"}
@@ -91,6 +79,15 @@ export default function QuestionMain({
                     onClick={handleQuit}
                 >
                     Quit Game
+                </Button>
+                <Button
+                    fullWidth
+                    variant={"contained"}
+                    size={"large"}
+                    color={"secondary"}
+                    onClick={handleNext}
+                >
+                    Next Question
                 </Button>
             </div>
 

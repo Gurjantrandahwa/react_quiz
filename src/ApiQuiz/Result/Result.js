@@ -9,7 +9,7 @@ export default function Result({score, name}) {
         if (!name) {
             navigate("/")
         }
-    }, [name])
+    }, [name,navigate])
 
     return <div className={"results"}>
         <Typography variant={"h4"}

@@ -21,15 +21,18 @@ export default function Questions({name, setScore, score, questions}) {
         )
     }, [questions,currQuestion])
     console.log(options, "options")
-    return <div>
-        <h1>Welcome {name}</h1>
+    return <div className={"question-container"}>
+        <div className={"score-wrapper"}>
+            <h1>Welcome {name}</h1>
+            <h2>Score: {score}</h2>
+            <h3>{questions[currQuestion].category}</h3>
+
+
+        </div>
         <div>
             {questions ? (
                 <div>
-                    <div className={"score-wrapper"}>
-                        <h3>{questions[currQuestion].category}</h3>
-                        <h2>Score: {score}</h2>
-                    </div>
+
                     <QuestionMain
                         currQuestion={currQuestion}
                         setCurrQuestion={setCurrQuestion}
