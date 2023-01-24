@@ -9,20 +9,26 @@ export default function Result({score, name}) {
         if (!name) {
             navigate("/")
         }
-    }, [name,navigate])
+    }, [name, navigate])
 
     return <div className={"results"}>
-        <Typography variant={"h4"}
-        sx={{color:"olivedrab",
-        textAlign:"center",
-        margin:"70px"}}>
-            Final Score: {score}
-        </Typography>
-        <Button
-        color={"success"}
-        variant={"contained"}
-        href={"/"}>
-            Homepage
-        </Button>
+        <img src={"https://i.pinimg.com/564x/77/e3/35/77e3355a8679eb0686bea14c8e99c17c.jpg"} alt={""}/>
+        <div>
+            <p>
+                Here Your final score for more questions click the button
+                and select another category have fun!.
+            </p>
+            <Typography variant={"h4"}>
+                Final Score: <span>{score}</span>
+            </Typography>
+            <Button
+                fullWidth
+                color={"success"}
+                variant={"contained"}
+                href={"/"}>
+                Homepage
+            </Button>
+        </div>
+
     </div>
 }

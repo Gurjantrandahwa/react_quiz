@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./Homepage.scss"
-import {Alert, Button, MenuItem, TextField} from "@mui/material";
+import {Alert, Button, MenuItem, TextField, Typography} from "@mui/material";
 import categories from "../Data/categories"
 import {useNavigate} from "react-router-dom";
 
@@ -28,14 +28,15 @@ export default function Homepage({name, setName, fetchQuestions}) {
             />
         </div>
         <div className={"input-wrapper"}>
-            <h2>Quiz Login</h2>
+            <h2>Welcome to Quiz Game</h2>
+            <Typography variant={"caption"} color={"gray"}>
+                Here you can choose your favorite category and start the game.
+            </Typography>
             {error &&
             <Alert
-                sx={{
-                    marginBottom:"20px"
-                }}
+                className={"alert-details"}
                 variant={"outlined"}
-            color={"error"}>
+                color={"error"}>
                 Please fill all the details
             </Alert>
             }
@@ -49,12 +50,13 @@ export default function Homepage({name, setName, fetchQuestions}) {
                 />
 
                 <TextField
+                    required
                     select
                     label={"Select Category"}
                     variant={"outlined"}
                     value={category}
-                    onChange={(e)=>
-                    setCategory(e.target.value)}
+                    onChange={(e) =>
+                        setCategory(e.target.value)}
                 >
 
                     {categories.map((cate) => {
@@ -66,11 +68,12 @@ export default function Homepage({name, setName, fetchQuestions}) {
                 </TextField>
 
                 <TextField
+                    required
                     select
                     label={"Select Difficulty"}
                     variant={"outlined"}
                     value={difficulty}
-                    onChange={(e)=>
+                    onChange={(e) =>
                         setDifficulty(e.target.value)}
 
                 >

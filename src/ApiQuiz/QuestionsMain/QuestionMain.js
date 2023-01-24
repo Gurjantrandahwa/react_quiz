@@ -1,12 +1,11 @@
 import React, {useState} from "react";
 import "./QuestionMain.scss";
-import {Alert, Button} from "@mui/material";
+import {Alert, Button, Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 
 export default function QuestionMain({
                                          currQuestion,
                                          options,
-
                                          setCurrQuestion,
                                          correct,
                                          score,
@@ -47,12 +46,22 @@ export default function QuestionMain({
 
     }
     return <div className={"mainQuestion"}>
-        <h1>Question {currQuestion + 1}</h1>
-
+        <h1>Question : {currQuestion + 1}</h1>
+       <Typography
+           color={"gray"}
+           variant={"body2"}
+       >
+           Number of questions of this category are {questions.length}
+         </Typography>
         <h2>{questions[currQuestion].question}</h2>
 
         <div>
-            {error && <Alert variant={"outlined"}>{error}</Alert>}
+            {error && <Alert
+                className={"alert-options"}
+                color={"warning"}
+                variant={"outlined"}>
+                {error}
+            </Alert>}
             <div className={"option-wrapper"}>
                 {
                     options && options.map((value) => {
@@ -69,11 +78,11 @@ export default function QuestionMain({
                     })
                 }
             </div>
-            <div  className={"controls"}>
+            <div className={"controls"}>
                 <Button
                     fullWidth
                     color={"error"}
-                    variant={"contained"}
+                    variant={"outlined"}
                     size={"large"}
                     href={"/"}
                     onClick={handleQuit}
@@ -82,13 +91,14 @@ export default function QuestionMain({
                 </Button>
                 <Button
                     fullWidth
-                    variant={"contained"}
+                    variant={"outlined"}
                     size={"large"}
                     color={"secondary"}
                     onClick={handleNext}
                 >
                     Next Question
                 </Button>
+
             </div>
 
         </div>

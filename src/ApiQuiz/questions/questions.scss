@@ -1,15 +1,39 @@
 .question-container {
-  padding: 40px 0;
-  max-width: 80%;
   display: flex;
   flex-direction: column;
   margin: auto;
-  justify-content: center;
+  padding-top: 20px;
+  height: 87vh;
+  background: linear-gradient(180deg, rgba(233, 232, 241, 1) 0%, rgba(255, 255, 255, 1) 0%, rgb(152, 220, 229) 49%, rgb(164, 237, 247) 100%, rgba(3, 144, 164, 1) 100%);
+  //overflow: hidden;
+
+  .score-wrapper {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    h1 {
+      font-family: "Poppins Black", sans-serif;
+      text-transform: capitalize;
+      font-size: 24px;
+    }
+
+    .name {
+      color: rgba(3, 144, 164, 1);
+    }
+  }
+
+  .loader {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+  }
 }
 
-
-.score-wrapper {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 30px;
+@media screen and (max-width: 800px) {
+  .question-container {
+    height: fit-content !important;
+  }
 }

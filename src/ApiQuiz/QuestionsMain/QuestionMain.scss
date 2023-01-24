@@ -1,13 +1,31 @@
 .mainQuestion {
-
   display: flex;
-  margin: auto;
+  margin: 20px auto;
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  position: relative;
+
+  .alert-options {
+    position: absolute;
+    top: 20px;
+    left: 4%;
+  }
 
   h1 {
     margin-bottom: 20px;
+    color: #20082b;
+  }
+
+  h2 {
+    padding: 15px;
+    margin: 20px 40px;
+    border: none;
+    border-radius: 30px;
+    background-color: #bd58db;
+    color: white;
+    font-weight: 500;
+    font-size: 18px !important;
   }
 
   .option-wrapper {
@@ -23,21 +41,49 @@
 
     .singleOption {
       width: 46%;
-      padding: 15px;
-//border: 1px solid #053505!important;
-//      color: #042436!important;
-//      text-transform: inherit!important;
+      padding: 10px;
+      border-radius: 30px;
+      border: none;
+      background-color: #bd58db;
+      color: white;
+      font-weight: 500;
+      text-transform: inherit;
+      font-size: 18px;
+
     }
   }
 
-  .controls{
-    margin-top: 20px;
+  .controls {
+    margin-top: 30px;
     display: flex;
     width: 100%;
     justify-content: space-around;
     gap: 30px;
     padding: 2px 60px;
+
+    button, a {
+      border-radius: 30px;
+      padding: 10px;
+    }
   }
+
+  @media screen and (max-width: 800px) {
+
+    .alert-options {
+      position: inherit;
+      margin: 0 40px;
+    }
+
+    .option-wrapper {
+
+      flex-direction: column;
+
+      .singleOption {
+        width: 100%;
+      }
+    }
+  }
+
 }
 
 .select {
@@ -49,3 +95,5 @@
   background-color: red !important;
   color: white !important;
 }
+
+

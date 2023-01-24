@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import "./ApiQuiz.scss";
 import Header from "../Header/Header";
 import Homepage from "../Homepage/Homepage";
@@ -8,7 +8,7 @@ import Result from "../Result/Result";
 import axios from "axios";
 
 export default function ApiQuiz() {
-    //https://i.pinimg.com/564x/77/e3/35/77e3355a8679eb0686bea14c8e99c17c.jpg
+
     const [name, setName] = useState("")
     const [score, setScore] = useState(0)
     const [questions, setQuestions] = useState()

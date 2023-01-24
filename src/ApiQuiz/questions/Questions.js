@@ -11,7 +11,6 @@ export default function Questions({name, setScore, score, questions}) {
         return option.sort(() => Math.random() - 0.5);
     }
     useEffect(() => {
-        console.log(questions, "questions")
         setOptions(
             questions &&
             handleShuffle([
@@ -19,15 +18,15 @@ export default function Questions({name, setScore, score, questions}) {
                 ...questions[currQuestion]?.incorrect_answers
             ])
         )
-    }, [questions,currQuestion])
-    console.log(options, "options")
+    }, [questions, currQuestion])
     return <div className={"question-container"}>
         <div className={"score-wrapper"}>
-            <h1>Welcome {name}</h1>
-            <h2>Score: {score}</h2>
-            <h3>{questions[currQuestion].category}</h3>
-
-
+            <h1>Welcome :
+                <span className={"name"}> {name}</span>
+            </h1>
+            <h1>Score :
+                <span className={"name"}> {score}</span>
+            </h1>
         </div>
         <div>
             {questions ? (
@@ -44,7 +43,10 @@ export default function Questions({name, setScore, score, questions}) {
                     />
                 </div>
             ) : (
-                <CircularProgress variant={"indeterminate"} color={"secondary"}/>
+                <CircularProgress
+                    size={80}
+                    className={"loader"}
+                />
             )
             }
         </div>

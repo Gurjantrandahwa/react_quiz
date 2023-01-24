@@ -2,6 +2,8 @@
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
+  height: 87vh;
+  background: linear-gradient(180deg, rgba(233, 232, 241, 1) 0%, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 49%, rgb(164, 237, 247) 100%, rgba(3, 144, 164, 1) 100%);
 
   img {
     height: 450px;
@@ -11,14 +13,14 @@
     display: flex;
     margin: auto;
     justify-content: center;
+    mask-image: linear-gradient(black, transparent);
   }
 
   h2 {
-    font-size: 42px;
+    font-size: 38px;
     font-weight: 400;
     color: olivedrab;
-    text-align: center;
-    margin-bottom: 20px;
+    margin-top: 40px;
   }
 
   .input-wrapper {
@@ -31,14 +33,24 @@
     form {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .alert-details{
+      position: absolute;
+      top: 100px;
+      width: 44%;
     }
   }
 
   @media screen and (max-width: 840px) {
     .input-wrapper {
       width: 100%;
-      margin-top: 10px;
+      margin-top: 30px;
+      .alert-details{
+    position: inherit;
+width: 100%;
+      }
     }
   }
 }
