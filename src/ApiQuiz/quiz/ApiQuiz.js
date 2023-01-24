@@ -39,7 +39,10 @@ export default function ApiQuiz() {
                            setQuestions={setQuestions}
                            name={name}
                        />}/>
-                <Route path={"/result"} element={<Result/>}/>
+                <Route path={"/result"} element={<Result
+                    score={score}
+                    name={name}
+                />}/>
 
             </Routes>
 

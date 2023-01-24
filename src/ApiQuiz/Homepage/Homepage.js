@@ -2,8 +2,7 @@ import React, {useState} from "react";
 import "./Homepage.scss"
 import {Alert, Button, MenuItem, TextField} from "@mui/material";
 import categories from "../Data/categories"
-import {useNavigate} from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 export default function Homepage({name, setName, fetchQuestions}) {
     const [category, setCategory] = useState("")
     const [difficulty, setDifficulty] = useState("")
@@ -30,7 +29,7 @@ export default function Homepage({name, setName, fetchQuestions}) {
             <h2>Quiz Login</h2>
 
             {error && <Alert
-                sx={{marginBottom: "10px"}}
+                sx={{marginBottom:"10px"}}
                 color={"error"} variant={"outlined"}>
                 Please fill the details
             </Alert>}

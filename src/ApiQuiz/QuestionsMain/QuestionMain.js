@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import "./QuestionMain.scss";
 import {Alert, Button} from "@mui/material";
+import {useNavigate} from "react-router-dom";
 
 export default function QuestionMain({
                                          currQuestion,
                                          options,
-                                         setQuestions,
+
                                          setCurrQuestion,
                                          correct,
                                          score,
@@ -13,6 +14,7 @@ export default function QuestionMain({
                                          setScore
                                      }) {
     const [selected, setSelected] = useState()
+    const navigate = useNavigate();
     const [error, setError] = useState(false)
     const handleSelect = (value) => {
         if (selected === value && selected === correct) {
@@ -31,13 +33,26 @@ export default function QuestionMain({
         }
 
     }
+    const handleNext = () => {
+        if (currQuestion > 8) {
+            navigate("/result")
+        } else if (selected) {
+            setCurrQuestion(currQuestion + 1);
+            setSelected();
+        } else {
+            setError("Please select at one Option")
+        }
+    }
+    const handleQuit = () => {
+
+    }
     return <div className={"mainQuestion"}>
         <h1>Question {currQuestion + 1}</h1>
 
         <h2>{questions[currQuestion].question}</h2>
 
         <div>
-            {error && <Alert>{error}</Alert>}
+            {error && <Alert variant={"outlined"}>{error}</Alert>}
             <div className={"option-wrapper"}>
                 {
                     options && options.map((value) => {
@@ -53,6 +68,30 @@ export default function QuestionMain({
                         </Button>
                     })
                 }
+            </div>
+            <div
+                className={"controls"}
+            >
+                <Button
+
+                    fullWidth
+                    variant={"contained"}
+                    size={"large"}
+                    color={"secondary"}
+                    onClick={handleNext}
+                >
+                    Next Question
+                </Button>
+                <Button
+                    fullWidth
+                    color={"error"}
+                    variant={"contained"}
+                    size={"large"}
+                    href={"/"}
+                    onClick={handleQuit}
+                >
+                    Quit Game
+                </Button>
             </div>
 
         </div>

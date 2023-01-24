@@ -10,10 +10,10 @@
     margin-bottom: 20px;
   }
 
-  .option-wrapper{
+  .option-wrapper {
     width: 100%;
     display: flex;
- flex-wrap: wrap;
+    flex-wrap: wrap;
     gap: 20px;
     flex: 1;
     align-items: center;
@@ -21,18 +21,29 @@
     margin-top: 20px;
     padding: 0 40px;
 
-    .singleOption{
+    .singleOption {
       width: 46%;
       padding: 15px;
 
     }
   }
+
+  .controls{
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    gap: 30px;
+    padding: 2px 60px;
+  }
 }
-.select{
-  background-color: green!important;
-  color: white!important;
+
+.select {
+  background-color: green !important;
+  color: white !important;
 }
-.wrong{
-  background-color: red!important;
-  color: white!important;
+
+.wrong {
+  background-color: red !important;
+  color: white !important;
 }

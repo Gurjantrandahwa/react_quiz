@@ -3,7 +3,7 @@ import "./questions.scss"
 import {CircularProgress} from "@mui/material";
 import QuestionMain from "../QuestionsMain/QuestionMain";
 
-export default function Questions({name, setScore, score, questions, setQuestions}) {
+export default function Questions({name, setScore, score, questions}) {
 
     const [currQuestion, setCurrQuestion] = useState(0)
     const [options, setOptions] = useState()
@@ -19,7 +19,7 @@ export default function Questions({name, setScore, score, questions, setQuestion
                 ...questions[currQuestion]?.incorrect_answers
             ])
         )
-    }, [questions])
+    }, [questions,currQuestion])
     console.log(options, "options")
     return <div>
         <h1>Welcome {name}</h1>
@@ -33,7 +33,6 @@ export default function Questions({name, setScore, score, questions, setQuestion
                     <QuestionMain
                         currQuestion={currQuestion}
                         setCurrQuestion={setCurrQuestion}
-                        setQuestions={setQuestions}
                         options={options}
                         questions={questions}
                         setScore={setScore}
