@@ -3,7 +3,7 @@
   flex-direction: column;
   margin: auto;
   padding-top: 20px;
-  height: 87vh;
+  height: 100vh;
   background: linear-gradient(180deg, rgba(233, 232, 241, 1) 0%, rgba(255, 255, 255, 1) 0%, rgb(152, 220, 229) 49%, rgb(164, 237, 247) 100%, rgba(3, 144, 164, 1) 100%);
   //overflow: hidden;
 
@@ -32,8 +32,3 @@
   }
 }
 
-@media screen and (max-width: 800px) {
-  .question-container {
-    height: 94vh;
-  }
-}
