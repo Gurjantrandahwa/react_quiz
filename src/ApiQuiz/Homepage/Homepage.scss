@@ -36,7 +36,8 @@
       gap: 30px;
       margin-top: 30px;
     }
-    .alert-details{
+
+    .alert-details {
       position: absolute;
       top: 100px;
       width: 44%;
@@ -47,11 +48,16 @@
     .input-wrapper {
       width: 100%;
       margin-top: 30px;
-      .alert-details{
-    position: inherit;
-width: 100%;
+
+      .alert-details {
+        position: inherit;
+        width: 100%;
       }
     }
   }
 }
-
+@media screen and (max-width: 840px){
+  .homepage{
+    height: fit-content;
+  }
+}
